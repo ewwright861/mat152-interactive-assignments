@@ -13,134 +13,240 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
-.shell { max-width: 900px; margin: auto; padding: 22px 16px 65px; }
+.shell {
+  max-width: 900px;
+  margin: auto;
+  padding: 22px 16px 65px;
+}
 .hero {
-  background: #0b3d66; color: white; padding: 30px;
+  background: #0b3d66;
+  color: white;
+  padding: 30px;
   border-radius: 18px 18px 0 0;
 }
 .eyebrow {
-  letter-spacing: .12em; text-transform: uppercase;
-  font-size: .75rem; font-weight: 700; color: #c8e6ff;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #c8e6ff;
 }
-.hero h1 { font-size: clamp(1.65rem,4vw,2.4rem); margin: 8px 0; }
+.hero h1 {
+  font-size: clamp(1.65rem, 4vw, 2.4rem);
+  margin: 8px 0;
+}
 .hero p { line-height: 1.6; margin-bottom: 0; }
 .panel {
-  background: white; padding: 24px 30px;
-  border: 1px solid #d9e4ed; border-top: 0;
+  background: white;
+  padding: 24px 30px;
+  border: 1px solid #d9e4ed;
+  border-top: 0;
 }
 .panel:last-child { border-radius: 0 0 18px 18px; }
 .facts {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 10px; margin: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 18px 0;
 }
-.fact { background: #e8f3fb; border-radius: 10px; padding: 14px; }
-.fact span { display: block; color: #42627a; font-size: .8rem; }
+.fact {
+  background: #e8f3fb;
+  border-radius: 10px;
+  padding: 14px;
+}
+.fact span {
+  display: block;
+  color: #42627a;
+  font-size: .8rem;
+}
 .fact strong { font-size: 1.2rem; }
 .notice {
-  background: #f5f8fb; border-left: 4px solid #2a7094;
-  padding: 14px 18px; line-height: 1.6;
+  background: #f5f8fb;
+  border-left: 4px solid #2a7094;
+  padding: 14px 18px;
+  line-height: 1.6;
 }
 .small { font-size: .86rem; }
 .identity {
-  background: #f5f9fc; border: 1px solid #cbdce9;
-  border-radius: 12px; padding: 18px; margin-top: 18px;
+  background: #f5f9fc;
+  border: 1px solid #cbdce9;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 18px;
 }
 .identity label {
-  display: block; font-weight: 700;
-  color: #0b3d66; margin-bottom: 8px;
+  display: block;
+  font-weight: 700;
+  color: #0b3d66;
+  margin-bottom: 8px;
 }
 .identity input {
-  width: 100%; max-width: 420px; padding: 12px;
-  border: 2px solid #a9c0d3; border-radius: 9px;
+  width: 100%;
+  max-width: 420px;
+  padding: 12px;
+  border: 2px solid #a9c0d3;
+  border-radius: 9px;
   font-size: 1rem;
 }
-.stepbar { display: flex; gap: 6px; margin: 20px 0; }
+.stepbar {
+  display: flex;
+  gap: 6px;
+  margin: 20px 0;
+}
 .step {
-  flex: 1; height: 8px; border-radius: 99px;
+  flex: 1;
+  height: 8px;
+  border-radius: 99px;
   background: #dbe6ef;
 }
 .step.active { background: #0b709c; }
-.tag { font-weight: 750; color: #0b3d66; font-size: .9rem; }
+.tag {
+  font-weight: 750;
+  color: #0b3d66;
+  font-size: .9rem;
+}
 .question {
-  font-size: 1.28rem; font-weight: 750;
+  font-size: 1.28rem;
+  font-weight: 750;
   margin: 10px 0 18px;
 }
 .method {
-  background: #e8f3fb; border-left: 4px solid #0b3d66;
-  border-radius: 6px; padding: 10px 14px;
-  margin: 12px 0; font-weight: 700;
+  background: #e8f3fb;
+  border-left: 4px solid #0b3d66;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 12px 0;
+  font-weight: 700;
 }
 .scenario {
-  background: #f5f9fc; border: 1px solid #cbdce9;
-  border-radius: 12px; padding: 16px; margin: 14px 0 20px;
+  background: #f5f9fc;
+  border: 1px solid #cbdce9;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 14px 0 20px;
   line-height: 1.6;
 }
 .options { display: grid; gap: 10px; }
 .option {
-  display: flex; align-items: center; gap: 12px;
-  padding: 15px; border: 1.5px solid #cbdce9;
-  border-radius: 12px; cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1.5px solid #cbdce9;
+  border-radius: 12px;
+  cursor: pointer;
 }
 .option:has(input:checked) {
-  border-color: #0b709c; background: #eef8fd;
+  border-color: #0b709c;
+  background: #eef8fd;
 }
 .option input {
-  width: 18px; height: 18px; flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
   accent-color: #0b709c;
 }
 .number {
-  width: 100%; max-width: 260px;
-  border: 2px solid #a9c0d3; border-radius: 10px;
-  padding: 13px; font-size: 1.1rem;
+  width: 100%;
+  max-width: 260px;
+  border: 2px solid #a9c0d3;
+  border-radius: 10px;
+  padding: 13px;
+  font-size: 1.1rem;
 }
 .hint {
-  margin-top: 18px; border: 1px solid #e1d5ac;
-  border-radius: 12px; background: #fffaf0;
+  margin-top: 18px;
+  border: 1px solid #e1d5ac;
+  border-radius: 12px;
+  background: #fffaf0;
   padding: 12px 15px;
 }
-.hint summary { cursor: pointer; font-weight: 700; color: #6a4c12; }
+.hint summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #6a4c12;
+}
 .hint p { line-height: 1.55; }
 .actions {
-  display: flex; justify-content: space-between;
-  gap: 12px; margin-top: 26px; flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: wrap;
 }
 button {
-  cursor: pointer; border-radius: 10px;
-  border: 1px solid #0b3d66; padding: 12px 20px;
-  font-size: 1rem; font-weight: 750;
-  background: #0b3d66; color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #0b3d66;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 750;
+  background: #0b3d66;
+  color: white;
 }
-button.secondary { background: white; color: #0b3d66; }
-button:disabled { opacity: .4; cursor: not-allowed; }
-button:focus-visible, input:focus-visible, summary:focus-visible {
-  outline: 3px solid #d49b23; outline-offset: 3px;
+button.secondary {
+  background: white;
+  color: #0b3d66;
 }
-.message { color: #8a3700; font-weight: 650; margin-top: 10px; }
+button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #d49b23;
+  outline-offset: 3px;
+}
+.message {
+  color: #8a3700;
+  font-weight: 650;
+  margin-top: 10px;
+}
 .results {
-  background: #eef7fc; border: 1px solid #beddeb;
-  border-radius: 16px; padding: 24px; text-align: center;
+  background: #eef7fc;
+  border: 1px solid #beddeb;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
 }
-.score { font-size: 3.2rem; font-weight: 850; color: #0b3d66; margin: 8px 0; }
-.muted { color: #50687b; line-height: 1.6; }
+.score {
+  font-size: 3.2rem;
+  font-weight: 850;
+  color: #0b3d66;
+  margin: 8px 0;
+}
+.muted {
+  color: #50687b;
+  line-height: 1.6;
+}
 .completion {
-  border: 2px solid #2e7d32; background: #f7fbf8;
-  border-radius: 12px; padding: 18px; margin: 14px 0;
+  border: 2px solid #2e7d32;
+  background: #f7fbf8;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 14px 0;
 }
 .completion h2 { color: #285c3d; }
 .hidden { display: none !important; }
+
 @media print {
   body { background: white; }
-  .hero, .panel:first-of-type, #assignment, .print-hide {
+  .hero, .panel:first-of-type,
+  #assignment, .print-hide {
     display: none !important;
   }
   .shell { padding: 0; }
   .panel { border: 0; padding: 0; }
-  .results { border: 2px solid #333; background: white; }
+  .results {
+    border: 2px solid #333;
+    background: white;
+  }
 }
-@media(max-width:620px) {
+@media (max-width: 620px) {
   .hero { padding: 24px 20px; }
   .panel { padding: 20px; }
-  .facts { grid-template-columns: repeat(2,1fr); }
+  .facts { grid-template-columns: repeat(2, 1fr); }
   .option { padding: 13px; }
   .actions button { flex: 1; }
 }
@@ -150,73 +256,125 @@ button:focus-visible, input:focus-visible, summary:focus-visible {
 <main class="shell">
 
 <header class="hero">
-  <div class="eyebrow">MAT 152 · Section 9.2 · Guided learning</div>
+  <div class="eyebrow">
+    MAT 152 · Section 9.2 · Guided Learning
+  </div>
   <h1>Electric Scooter Charging Times</h1>
-  <p>Interactive Hypothesis-Testing Assignment<br>
-  Critical-Value Method &amp; P-Value Method</p>
+  <p>
+    Interactive Hypothesis-Testing Assignment<br>
+    Critical-Value Method &amp; P-Value Method
+  </p>
 </header>
 
 <section class="panel">
   <h2>Investigate the Claim</h2>
 
-  <p>A company claims that its electric scooters have an average
-  charging time of <strong>6 hours</strong>. A researcher believes
-  the average charging time is <strong>less than 6 hours</strong>.</p>
+  <p>
+    A company claims that its electric scooters have an
+    average charging time of <strong>6 hours</strong>.
+    Two researchers investigate the company's claim
+    using different random samples.
+  </p>
 
-  <p>You will investigate <strong>two different random samples</strong>
-  of electric scooters. Use the critical-value method for Sample A
-  and the P-value method for Sample B.</p>
+  <p>
+    In Part 1, you will use the
+    <strong>critical-value method</strong>.
+    In Part 2, you will use the
+    <strong>P-value method</strong>.
+  </p>
 
-  <p>Both tests use a significance level of
-  <strong>α = 0.05</strong> and a known population standard deviation
-  of <strong>σ = 1.6 hours</strong>.</p>
+  <p>
+    Both investigations use a significance level of
+    <strong>0.05</strong> and a known population standard
+    deviation of <strong>1.6 hours</strong>.
+  </p>
 
   <div class="facts">
-    <div class="fact"><span>Claimed mean</span><strong>6 hr</strong></div>
-    <div class="fact"><span>Population σ</span><strong>1.6 hr</strong></div>
-    <div class="fact"><span>Significance level</span><strong>0.05</strong></div>
-    <div class="fact"><span>Test direction</span><strong>Left-tailed</strong></div>
+    <div class="fact">
+      <span>Claimed mean</span>
+      <strong>6 hr</strong>
+    </div>
+    <div class="fact">
+      <span>Population σ</span>
+      <strong>1.6 hr</strong>
+    </div>
+    <div class="fact">
+      <span>Significance level</span>
+      <strong>0.05</strong>
+    </div>
+    <div class="fact">
+      <span>Practice questions</span>
+      <strong>10</strong>
+    </div>
   </div>
 
   <div class="notice small">
-    <strong>Instructions:</strong> Complete all ten questions.
-    You will use two different samples to practice both hypothesis-testing
-    methods. Use your TI-83/TI-84 calculator and assigned Section 9.2
-    lesson materials.
+    <strong>Assignment Instructions</strong>
 
-    <p><strong>Allowed:</strong> Calculator and Section 9.2 materials.</p>
+    <p>
+      Complete all ten questions using your TI-83/TI-84
+      calculator and the assigned Section 9.2 lesson materials.
+    </p>
 
-    <p><strong>Not allowed:</strong> AI tools, internet answer searches,
-    or outside answer sources. Complete your work independently.</p>
+    <p>
+      <strong>Allowed:</strong> Your calculator and assigned
+      Section 9.2 lesson materials.
+    </p>
 
-    <p><strong>Attempts:</strong> You may complete the activity twice.
-    Your highest practice score will be displayed.</p>
+    <p>
+      <strong>Not allowed:</strong> AI tools, internet answer
+      searches, or outside answer sources.
+      Complete the assignment independently.
+    </p>
 
-    <p><strong>Worksheet credit:</strong> You receive 100% for completing
-    both parts and submitting your completion screenshot in Canvas,
-    regardless of your practice score.</p>
+    <p>
+      <strong>Attempts:</strong> You may complete the activity
+      twice. Your highest practice score will be displayed.
+    </p>
 
-    <p style="margin-bottom:0"><strong>Completion:</strong>
-    Take a screenshot of the final screen showing your first and last name
-    and the words "Assignment Completed."</p>
+    <p>
+      <strong>Worksheet credit:</strong> You will receive
+      <strong>100% worksheet credit</strong> for completing
+      the activity and uploading your completion screenshot
+      in Canvas, regardless of your practice score.
+    </p>
+
+    <p style="margin-bottom:0">
+      <strong>Completion:</strong> Take a screenshot of the
+      final screen showing your first and last name and
+      the words "Assignment Completed."
+    </p>
   </div>
 
   <div class="identity">
-    <label for="studentName">Your first and last name (required)</label>
-    <input id="studentName" type="text" autocomplete="name"
-      maxlength="90" placeholder="Enter your first and last name" required>
-    <p class="small muted">Your name will appear on the completion screen.
-    This activity does not transmit or store your name or answers
-    on a server.</p>
+    <label for="studentName">
+      Your first and last name (required)
+    </label>
+    <input
+      id="studentName"
+      type="text"
+      autocomplete="name"
+      maxlength="90"
+      placeholder="Enter your first and last name"
+      required
+    >
+    <p class="small muted">
+      Your name will appear on the completion screen.
+      This activity does not transmit or store your name
+      or answers on a server.
+    </p>
   </div>
 </section>
 
 <section class="panel">
   <div id="assignment">
     <div class="tag" id="stepLabel"></div>
-    <div class="stepbar" id="progress" aria-label="Assignment progress"></div>
+    <div class="stepbar" id="progress"
+      aria-label="Assignment progress"></div>
+
     <div class="method" id="methodLabel"></div>
     <div class="scenario" id="scenario"></div>
+
     <h2 class="question" id="question"></h2>
     <div id="response"></div>
 
@@ -225,15 +383,20 @@ button:focus-visible, input:focus-visible, summary:focus-visible {
       <p id="hintText"></p>
     </details>
 
-    <p class="message" id="error" role="alert" aria-live="polite"></p>
+    <p class="message" id="error"
+      role="alert" aria-live="polite"></p>
 
     <div class="actions">
-      <button class="secondary" id="back" type="button">← Back</button>
-      <button id="next" type="button">Continue →</button>
+      <button class="secondary" id="back"
+        type="button">← Back</button>
+      <button id="next" type="button">
+        Continue →
+      </button>
     </div>
   </div>
 
-  <div id="result" class="hidden" aria-live="polite"></div>
+  <div id="result" class="hidden"
+    aria-live="polite"></div>
 </section>
 
 </main>
@@ -248,14 +411,16 @@ const samples = {
     size: 64,
     mean: 5.6,
     sigma: 1.6,
-    alpha: 0.05
+    alpha: 0.05,
+    belief: "is less than 6 hours"
   },
   B: {
     name: "Sample B",
     size: 64,
     mean: 5.8,
     sigma: 1.6,
-    alpha: 0.05
+    alpha: 0.05,
+    belief: "differs from 6 hours"
   }
 };
 
@@ -273,7 +438,7 @@ const questions = [
       "H₀: μ < 6; H₁: μ = 6"
     ],
     answer: 0,
-    hint: "The null hypothesis uses the claimed population mean. The alternative hypothesis reflects the researcher's belief."
+    hint: "The null hypothesis uses the claimed population mean. The alternative hypothesis reflects what the researcher believes."
   },
   {
     title: "Find the Critical Value",
@@ -284,7 +449,7 @@ const questions = [
     label: "Use invNorm to find the critical z-value. Round to three decimal places.",
     answer: -1.645,
     tolerance: 0.00051,
-    hint: "This is a left-tailed test. Use invNorm(0.05,0,1). The area to the left is α = 0.05."
+    hint: "Determine the tail from the alternative hypothesis. Use invNorm(area to the left,0,1)."
   },
   {
     title: "Find the Test Statistic",
@@ -295,7 +460,7 @@ const questions = [
     label: "Use Z-Test to find the z test statistic. Round to two decimal places.",
     answer: -2,
     tolerance: 0.0051,
-    hint: "Press STAT → TESTS → 1:Z-Test. Choose Stats. Enter μ₀ = 6, σ = 1.6, x̄ = 5.6, and n = 64. Select μ < μ₀ and Calculate."
+    hint: "Press STAT → TESTS → 1:Z-Test. Choose Stats. Enter μ₀ = 6, σ = 1.6, x̄ = 5.6, and n = 64. Select the alternative that matches the researcher's belief and choose Calculate."
   },
   {
     title: "Make the Critical-Value Decision",
@@ -308,7 +473,7 @@ const questions = [
       "Do Not Reject H₀"
     ],
     answer: 0,
-    hint: "For a left-tailed test, compare z = -2.00 with the critical value of approximately -1.645. Is the test statistic in the rejection region?"
+    hint: "Compare the test statistic with the critical value. Decide whether the test statistic falls in the rejection region."
   },
   {
     title: "State the Conclusion for Sample A",
@@ -323,7 +488,7 @@ const questions = [
       "The sample proves that every scooter charges in less than 6 hours."
     ],
     answer: 0,
-    hint: "When you Reject H₀, use the textbook conclusion wording: There is enough evidence to support the claim."
+    hint: "Use your decision to choose the appropriate conclusion about the researcher's claim. A hypothesis test does not prove what happens for every scooter."
   },
   {
     title: "Identify the Hypotheses for Sample B",
@@ -334,11 +499,11 @@ const questions = [
     options: [
       "H₀: μ = 6; H₁: μ < 6",
       "H₀: μ = 6; H₁: μ > 6",
-      "H₀: μ = 5.8; H₁: μ < 5.8",
-      "H₀: μ > 6; H₁: μ = 6"
+      "H₀: μ = 6; H₁: μ ≠ 6",
+      "H₀: μ = 5.8; H₁: μ ≠ 5.8"
     ],
-    answer: 0,
-    hint: "The company claim and researcher's belief have not changed. Only the sample data have changed."
+    answer: 2,
+    hint: "Think about whether the researcher is interested in values below 6, above 6, or either direction."
   },
   {
     title: "Find the Test Statistic for Sample B",
@@ -349,7 +514,7 @@ const questions = [
     label: "Use Z-Test with Sample B. Enter the z test statistic rounded to two decimal places.",
     answer: -1,
     tolerance: 0.0051,
-    hint: "Press STAT → TESTS → 1:Z-Test. Choose Stats. Enter μ₀ = 6, σ = 1.6, x̄ = 5.8, and n = 64. Select μ < μ₀ and Calculate."
+    hint: "Press STAT → TESTS → 1:Z-Test. Choose Stats. Enter μ₀ = 6, σ = 1.6, x̄ = 5.8, and n = 64. Select the alternative that matches the researcher's belief and choose Calculate."
   },
   {
     title: "Find the P-Value for Sample B",
@@ -358,9 +523,9 @@ const questions = [
     type: "number",
     points: 1,
     label: "Read the P-value from Z-Test. Round to four decimal places.",
-    answer: 0.1587,
+    answer: 0.3173,
     tolerance: 0.000051,
-    hint: "On the Z-Test results screen, read the number beside p =. You can also check using normalcdf(-9999,-1,0,1)."
+    hint: "Read the P-value directly from the Z-Test results screen. Check that your alternative hypothesis matches the researcher's belief."
   },
   {
     title: "Make the P-Value Decision",
@@ -375,7 +540,7 @@ const questions = [
       "Do Not Reject H₀ because P ≤ α"
     ],
     answer: 1,
-    hint: "Compare P = 0.1587 with α = 0.05. Remember: P ≤ α means Reject H₀; P > α means Do Not Reject H₀."
+    hint: "Compare your P-value with α = 0.05. Use the decision rules from your Section 9.2 lesson."
   },
   {
     title: "State the Conclusion for Sample B",
@@ -384,13 +549,13 @@ const questions = [
     type: "choice",
     points: 1,
     options: [
+      "There is enough evidence to support the claim that the population mean charging time differs from 6 hours.",
+      "There is not enough evidence to support the claim that the population mean charging time differs from 6 hours.",
       "There is enough evidence to support the claim that the population mean charging time is less than 6 hours.",
-      "There is not enough evidence to support the claim that the population mean charging time is less than 6 hours.",
-      "There is enough evidence to support the claim that the population mean charging time is greater than 6 hours.",
       "The sample proves that the population mean charging time equals exactly 6 hours."
     ],
     answer: 1,
-    hint: "When you Do Not Reject H₀, use the textbook conclusion wording: There is not enough evidence to support the claim. This does not prove that H₀ is true."
+    hint: "Use your P-value decision to choose the conclusion about the researcher's claim. Not rejecting H₀ does not prove that the null hypothesis is true."
   }
 ];
 
@@ -423,11 +588,18 @@ function render() {
 
   $("scenario").innerHTML = `
     <strong>${sample.name}:</strong>
+    A company claims that its electric scooters have an
+    average charging time of <strong>6 hours</strong>.
+    A researcher believes the average charging time
+    <strong>${sample.belief}</strong>.
     A random sample of <strong>${sample.size} scooters</strong>
-    has a mean charging time of <strong>${sample.mean} hours</strong>.
-    The population standard deviation is <strong>${sample.sigma} hours</strong>.
-    Test the researcher's claim that μ &lt; 6 using
-    <strong>α = ${sample.alpha}</strong>.
+    has a mean charging time of
+    <strong>${sample.mean} hours</strong>.
+    The population standard deviation is
+    <strong>${sample.sigma} hours</strong>.
+    Use a significance level of
+    <strong>${sample.alpha}</strong>
+    to test the researcher's claim.
   `;
 
   $("progress").innerHTML = questions.map((_, i) =>
