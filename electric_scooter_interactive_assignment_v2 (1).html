@@ -1,24 +1,617 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAT 152 | Electric Scooter Interactive Assignment</title>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT 152 | Electric Scooter Charging Times</title>
 <style>
-:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#172d42;background:#f2f6fa}*{box-sizing:border-box}body{margin:0}.shell{max-width:900px;margin:auto;padding:22px 16px 65px}.hero{background:#0b3d66;color:white;padding:30px;border-radius:18px 18px 0 0}.eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.75rem;font-weight:700;color:#c8e6ff}.hero h1{font-size:clamp(1.65rem,4vw,2.4rem);margin:8px 0}.hero p{line-height:1.6;margin-bottom:0}.panel{background:white;padding:24px 30px;border:1px solid #d9e4ed;border-top:0}.panel:last-child{border-radius:0 0 18px 18px}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.fact{background:#e8f3fb;border-radius:10px;padding:14px}.fact span{display:block;color:#42627a;font-size:.8rem}.fact strong{font-size:1.2rem}.stepbar{display:flex;justify-content:space-between;gap:6px;margin:20px 0}.step{flex:1;height:8px;border-radius:99px;background:#dbe6ef}.step.active{background:#0b709c}.tag{font-weight:750;color:#0b3d66;font-size:.9rem}.question{font-size:1.28rem;font-weight:750;margin:10px 0 18px}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:12px;padding:15px;border:1.5px solid #cbdce9;border-radius:12px;cursor:pointer}.option:has(input:checked){border-color:#0b709c;background:#eef8fd}.option input{width:18px;height:18px;accent-color:#0b709c}.number{width:100%;max-width:260px;border:2px solid #a9c0d3;border-radius:10px;padding:13px;font-size:1.1rem}.hint{margin-top:18px;border:1px solid #e1d5ac;border-radius:12px;background:#fffaf0;padding:12px 15px}.hint summary{cursor:pointer;font-weight:700;color:#6a4c12}.hint p{line-height:1.55}.actions{display:flex;justify-content:space-between;gap:12px;margin-top:26px;flex-wrap:wrap}button{cursor:pointer;border-radius:10px;border:1px solid #0b3d66;padding:12px 20px;font-size:1rem;font-weight:750;background:#0b3d66;color:white}button.secondary{background:white;color:#0b3d66}button:disabled{opacity:.4;cursor:not-allowed}.message{color:#8a3700;font-weight:650;margin-top:10px}.results{background:#eef7fc;border:1px solid #beddeb;border-radius:16px;padding:24px;text-align:center}.score{font-size:3.2rem;font-weight:850;color:#0b3d66;margin:8px 0}.muted{color:#50687b;line-height:1.6}.notice{background:#f5f8fb;border-left:4px solid #2a7094;padding:14px 18px;line-height:1.6}.small{font-size:.86rem}.identity{background:#f5f9fc;border:1px solid #cbdce9;border-radius:12px;padding:18px;margin-top:18px}.identity label{display:block;font-weight:700;color:#0b3d66;margin-bottom:8px}.identity input{width:100%;max-width:420px;padding:12px;border:2px solid #a9c0d3;border-radius:9px;font-size:1rem}.completion{border:2px solid #2e7d32;background:#f7fbf8;border-radius:12px;padding:18px;margin:14px 0}.completion h2{color:#285c3d}.hidden{display:none!important}@media print{body{background:white}.hero,.panel:first-of-type,#assignment,.print-hide{display:none!important}.shell{padding:0}.panel{border:0;padding:0}.results{border:2px solid #333;background:white}}@media(max-width:620px){.hero{padding:24px 20px}.panel{padding:20px}.facts{grid-template-columns:repeat(2,1fr)}.option{padding:13px}.actions button{flex:1}}
-</style></head><body><main class="shell"><header class="hero"><div class="eyebrow">MAT 152 · Section 9.2 · Guided learning</div><h1>Electric Scooter Charging Times</h1><p>Interactive Hypothesis-Testing Assignment · Critical Value Method</p></header>
-<section class="panel"><h2>Investigate the claim</h2><p>A company claims that its electric scooters have an average charging time of <strong>6 hours</strong>. A researcher believes the average charging time is <strong>less than 6 hours</strong>. A random sample of 64 scooters has a mean charging time of 5.6 hours. The population standard deviation is known to be 1.6 hours. Use a significance level of α = 0.05 to test the researcher's claim using the <strong>critical value method</strong>.</p><div class="facts"><div class="fact"><span>Sample size</span><strong>64</strong></div><div class="fact"><span>Sample mean</span><strong>5.6 hr</strong></div><div class="fact"><span>Population σ</span><strong>1.6 hr</strong></div><div class="fact"><span>Significance level</span><strong>0.05</strong></div></div><div class="notice small"><strong>Allowed:</strong> Your TI-83/TI-84 calculator and assigned Section 9.2 lesson materials. <strong>Not allowed:</strong> AI tools, internet answer searches, or outside answer sources. Complete the assignment independently. Use the calculator for statistical calculations.</div><div class="identity"><label for="studentName">Your first and last name (required)</label><input id="studentName" type="text" autocomplete="name" maxlength="90" placeholder="Enter your first and last name" required><p class="small muted">Your name will appear on the completion screen. The activity does not transmit or store your name or answers on a server.</p></div></section>
-<section class="panel"><div id="assignment"><div class="tag" id="stepLabel"></div><div class="stepbar" id="progress" aria-label="Assignment progress"></div><h2 class="question" id="question"></h2><div id="response"></div><details class="hint"><summary>Need a hint?</summary><p id="hintText"></p></details><p class="message" id="error" role="alert" aria-live="polite"></p><div class="actions"><button class="secondary" id="back" type="button">← Back</button><button id="next" type="button">Continue →</button></div></div><div id="result" class="hidden" aria-live="polite"></div></section></main>
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color: #172d42;
+  background: #f2f6fa;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.shell { max-width: 900px; margin: auto; padding: 22px 16px 65px; }
+.hero {
+  background: #0b3d66; color: white; padding: 30px;
+  border-radius: 18px 18px 0 0;
+}
+.eyebrow {
+  letter-spacing: .12em; text-transform: uppercase;
+  font-size: .75rem; font-weight: 700; color: #c8e6ff;
+}
+.hero h1 { font-size: clamp(1.65rem,4vw,2.4rem); margin: 8px 0; }
+.hero p { line-height: 1.6; margin-bottom: 0; }
+.panel {
+  background: white; padding: 24px 30px;
+  border: 1px solid #d9e4ed; border-top: 0;
+}
+.panel:last-child { border-radius: 0 0 18px 18px; }
+.facts {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 10px; margin: 18px 0;
+}
+.fact { background: #e8f3fb; border-radius: 10px; padding: 14px; }
+.fact span { display: block; color: #42627a; font-size: .8rem; }
+.fact strong { font-size: 1.2rem; }
+.notice {
+  background: #f5f8fb; border-left: 4px solid #2a7094;
+  padding: 14px 18px; line-height: 1.6;
+}
+.small { font-size: .86rem; }
+.identity {
+  background: #f5f9fc; border: 1px solid #cbdce9;
+  border-radius: 12px; padding: 18px; margin-top: 18px;
+}
+.identity label {
+  display: block; font-weight: 700;
+  color: #0b3d66; margin-bottom: 8px;
+}
+.identity input {
+  width: 100%; max-width: 420px; padding: 12px;
+  border: 2px solid #a9c0d3; border-radius: 9px;
+  font-size: 1rem;
+}
+.stepbar { display: flex; gap: 6px; margin: 20px 0; }
+.step {
+  flex: 1; height: 8px; border-radius: 99px;
+  background: #dbe6ef;
+}
+.step.active { background: #0b709c; }
+.tag { font-weight: 750; color: #0b3d66; font-size: .9rem; }
+.question {
+  font-size: 1.28rem; font-weight: 750;
+  margin: 10px 0 18px;
+}
+.method {
+  background: #e8f3fb; border-left: 4px solid #0b3d66;
+  border-radius: 6px; padding: 10px 14px;
+  margin: 12px 0; font-weight: 700;
+}
+.scenario {
+  background: #f5f9fc; border: 1px solid #cbdce9;
+  border-radius: 12px; padding: 16px; margin: 14px 0 20px;
+  line-height: 1.6;
+}
+.options { display: grid; gap: 10px; }
+.option {
+  display: flex; align-items: center; gap: 12px;
+  padding: 15px; border: 1.5px solid #cbdce9;
+  border-radius: 12px; cursor: pointer;
+}
+.option:has(input:checked) {
+  border-color: #0b709c; background: #eef8fd;
+}
+.option input {
+  width: 18px; height: 18px; flex-shrink: 0;
+  accent-color: #0b709c;
+}
+.number {
+  width: 100%; max-width: 260px;
+  border: 2px solid #a9c0d3; border-radius: 10px;
+  padding: 13px; font-size: 1.1rem;
+}
+.hint {
+  margin-top: 18px; border: 1px solid #e1d5ac;
+  border-radius: 12px; background: #fffaf0;
+  padding: 12px 15px;
+}
+.hint summary { cursor: pointer; font-weight: 700; color: #6a4c12; }
+.hint p { line-height: 1.55; }
+.actions {
+  display: flex; justify-content: space-between;
+  gap: 12px; margin-top: 26px; flex-wrap: wrap;
+}
+button {
+  cursor: pointer; border-radius: 10px;
+  border: 1px solid #0b3d66; padding: 12px 20px;
+  font-size: 1rem; font-weight: 750;
+  background: #0b3d66; color: white;
+}
+button.secondary { background: white; color: #0b3d66; }
+button:disabled { opacity: .4; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid #d49b23; outline-offset: 3px;
+}
+.message { color: #8a3700; font-weight: 650; margin-top: 10px; }
+.results {
+  background: #eef7fc; border: 1px solid #beddeb;
+  border-radius: 16px; padding: 24px; text-align: center;
+}
+.score { font-size: 3.2rem; font-weight: 850; color: #0b3d66; margin: 8px 0; }
+.muted { color: #50687b; line-height: 1.6; }
+.completion {
+  border: 2px solid #2e7d32; background: #f7fbf8;
+  border-radius: 12px; padding: 18px; margin: 14px 0;
+}
+.completion h2 { color: #285c3d; }
+.hidden { display: none !important; }
+@media print {
+  body { background: white; }
+  .hero, .panel:first-of-type, #assignment, .print-hide {
+    display: none !important;
+  }
+  .shell { padding: 0; }
+  .panel { border: 0; padding: 0; }
+  .results { border: 2px solid #333; background: white; }
+}
+@media(max-width:620px) {
+  .hero { padding: 24px 20px; }
+  .panel { padding: 20px; }
+  .facts { grid-template-columns: repeat(2,1fr); }
+  .option { padding: 13px; }
+  .actions button { flex: 1; }
+}
+</style>
+</head>
+<body>
+<main class="shell">
+
+<header class="hero">
+  <div class="eyebrow">MAT 152 · Section 9.2 · Guided learning</div>
+  <h1>Electric Scooter Charging Times</h1>
+  <p>Interactive Hypothesis-Testing Assignment<br>
+  Critical-Value Method &amp; P-Value Method</p>
+</header>
+
+<section class="panel">
+  <h2>Investigate the Claim</h2>
+
+  <p>A company claims that its electric scooters have an average
+  charging time of <strong>6 hours</strong>. A researcher believes
+  the average charging time is <strong>less than 6 hours</strong>.</p>
+
+  <p>You will investigate <strong>two different random samples</strong>
+  of electric scooters. Use the critical-value method for Sample A
+  and the P-value method for Sample B.</p>
+
+  <p>Both tests use a significance level of
+  <strong>α = 0.05</strong> and a known population standard deviation
+  of <strong>σ = 1.6 hours</strong>.</p>
+
+  <div class="facts">
+    <div class="fact"><span>Claimed mean</span><strong>6 hr</strong></div>
+    <div class="fact"><span>Population σ</span><strong>1.6 hr</strong></div>
+    <div class="fact"><span>Significance level</span><strong>0.05</strong></div>
+    <div class="fact"><span>Test direction</span><strong>Left-tailed</strong></div>
+  </div>
+
+  <div class="notice small">
+    <strong>Instructions:</strong> Complete all ten questions.
+    You will use two different samples to practice both hypothesis-testing
+    methods. Use your TI-83/TI-84 calculator and assigned Section 9.2
+    lesson materials.
+
+    <p><strong>Allowed:</strong> Calculator and Section 9.2 materials.</p>
+
+    <p><strong>Not allowed:</strong> AI tools, internet answer searches,
+    or outside answer sources. Complete your work independently.</p>
+
+    <p><strong>Attempts:</strong> You may complete the activity twice.
+    Your highest practice score will be displayed.</p>
+
+    <p><strong>Worksheet credit:</strong> You receive 100% for completing
+    both parts and submitting your completion screenshot in Canvas,
+    regardless of your practice score.</p>
+
+    <p style="margin-bottom:0"><strong>Completion:</strong>
+    Take a screenshot of the final screen showing your first and last name
+    and the words "Assignment Completed."</p>
+  </div>
+
+  <div class="identity">
+    <label for="studentName">Your first and last name (required)</label>
+    <input id="studentName" type="text" autocomplete="name"
+      maxlength="90" placeholder="Enter your first and last name" required>
+    <p class="small muted">Your name will appear on the completion screen.
+    This activity does not transmit or store your name or answers
+    on a server.</p>
+  </div>
+</section>
+
+<section class="panel">
+  <div id="assignment">
+    <div class="tag" id="stepLabel"></div>
+    <div class="stepbar" id="progress" aria-label="Assignment progress"></div>
+    <div class="method" id="methodLabel"></div>
+    <div class="scenario" id="scenario"></div>
+    <h2 class="question" id="question"></h2>
+    <div id="response"></div>
+
+    <details class="hint">
+      <summary>Need a hint?</summary>
+      <p id="hintText"></p>
+    </details>
+
+    <p class="message" id="error" role="alert" aria-live="polite"></p>
+
+    <div class="actions">
+      <button class="secondary" id="back" type="button">← Back</button>
+      <button id="next" type="button">Continue →</button>
+    </div>
+  </div>
+
+  <div id="result" class="hidden" aria-live="polite"></div>
+</section>
+
+</main>
+
 <script>
-(()=>{'use strict';
-const questions=[
-{title:'Identify the hypotheses',type:'choice',options:['H₀: μ = 6; H₁: μ < 6','H₀: μ = 6; H₁: μ > 6','H₀: μ = 5.6; H₁: μ < 5.6','H₀: μ < 6; H₁: μ = 6'],answer:0,hint:'The null hypothesis uses the claimed population mean. The alternative reflects the researcher’s direction of interest.'},
-{title:'Find the critical value',type:'number',label:'Enter the critical z-value. Round to three decimal places.',answer:-1.645,tolerance:.00051,hint:'Identify the tail from H₁. Use invNorm with the area to the left, mean 0, and standard deviation 1.'},
-{title:'Find the test statistic',type:'number',label:'Enter the z test statistic. Round to two decimal places.',answer:-2,tolerance:.0051,hint:'On the TI-83/TI-84, select the appropriate hypothesis test for a known population standard deviation. Choose Stats, enter the summary values, and read the test statistic.'},
-{title:'Make the decision',type:'choice',options:['Reject H₀','Do not reject H₀'],answer:0,hint:'For a left-tailed test, compare the test statistic with the critical value. Is the statistic in the rejection region?'},
-{title:'State the conclusion',type:'choice',options:['There is enough evidence to support the claim that the population mean charging time is less than 6 hours.','There is not enough evidence to support the claim that the population mean charging time is less than 6 hours.','There is enough evidence to support the claim that the population mean charging time is greater than 6 hours.','The sample proves that every scooter charges in less than 6 hours.'],answer:0,hint:'Translate your decision about H₀ into a statement about the researcher’s claim. A hypothesis test does not prove what happens for every individual scooter.'}
+(() => {
+"use strict";
+
+const samples = {
+  A: {
+    name: "Sample A",
+    size: 64,
+    mean: 5.6,
+    sigma: 1.6,
+    alpha: 0.05
+  },
+  B: {
+    name: "Sample B",
+    size: 64,
+    mean: 5.8,
+    sigma: 1.6,
+    alpha: 0.05
+  }
+};
+
+const questions = [
+  {
+    title: "Identify the Hypotheses",
+    method: "Part 1 · Critical-Value Method",
+    sample: "A",
+    type: "choice",
+    points: 1,
+    options: [
+      "H₀: μ = 6; H₁: μ < 6",
+      "H₀: μ = 6; H₁: μ > 6",
+      "H₀: μ = 5.6; H₁: μ < 5.6",
+      "H₀: μ < 6; H₁: μ = 6"
+    ],
+    answer: 0,
+    hint: "The null hypothesis uses the claimed population mean. The alternative hypothesis reflects the researcher's belief."
+  },
+  {
+    title: "Find the Critical Value",
+    method: "Part 1 · Critical-Value Method",
+    sample: "A",
+    type: "number",
+    points: 1,
+    label: "Use invNorm to find the critical z-value. Round to three decimal places.",
+    answer: -1.645,
+    tolerance: 0.00051,
+    hint: "This is a left-tailed test. Use invNorm(0.05,0,1). The area to the left is α = 0.05."
+  },
+  {
+    title: "Find the Test Statistic",
+    method: "Part 1 · Critical-Value Method",
+    sample: "A",
+    type: "number",
+    points: 1,
+    label: "Use Z-Test to find the z test statistic. Round to two decimal places.",
+    answer: -2,
+    tolerance: 0.0051,
+    hint: "Press STAT → TESTS → 1:Z-Test. Choose Stats. Enter μ₀ = 6, σ = 1.6, x̄ = 5.6, and n = 64. Select μ < μ₀ and Calculate."
+  },
+  {
+    title: "Make the Critical-Value Decision",
+    method: "Part 1 · Critical-Value Method",
+    sample: "A",
+    type: "choice",
+    points: 1,
+    options: [
+      "Reject H₀",
+      "Do Not Reject H₀"
+    ],
+    answer: 0,
+    hint: "For a left-tailed test, compare z = -2.00 with the critical value of approximately -1.645. Is the test statistic in the rejection region?"
+  },
+  {
+    title: "State the Conclusion for Sample A",
+    method: "Part 1 · Critical-Value Method",
+    sample: "A",
+    type: "choice",
+    points: 1,
+    options: [
+      "There is enough evidence to support the claim that the population mean charging time is less than 6 hours.",
+      "There is not enough evidence to support the claim that the population mean charging time is less than 6 hours.",
+      "There is enough evidence to support the claim that the population mean charging time is greater than 6 hours.",
+      "The sample proves that every scooter charges in less than 6 hours."
+    ],
+    answer: 0,
+    hint: "When you Reject H₀, use the textbook conclusion wording: There is enough evidence to support the claim."
+  },
+  {
+    title: "Identify the Hypotheses for Sample B",
+    method: "Part 2 · P-Value Method",
+    sample: "B",
+    type: "choice",
+    points: 1,
+    options: [
+      "H₀: μ = 6; H₁: μ < 6",
+      "H₀: μ = 6; H₁: μ > 6",
+      "H₀: μ = 5.8; H₁: μ < 5.8",
+      "H₀: μ > 6; H₁: μ = 6"
+    ],
+    answer: 0,
+    hint: "The company claim and researcher's belief have not changed. Only the sample data have changed."
+  },
+  {
+    title: "Find the Test Statistic for Sample B",
+    method: "Part 2 · P-Value Method",
+    sample: "B",
+    type: "number",
+    points: 1,
+    label: "Use Z-Test with Sample B. Enter the z test statistic rounded to two decimal places.",
+    answer: -1,
+    tolerance: 0.0051,
+    hint: "Press STAT → TESTS → 1:Z-Test. Choose Stats. Enter μ₀ = 6, σ = 1.6, x̄ = 5.8, and n = 64. Select μ < μ₀ and Calculate."
+  },
+  {
+    title: "Find the P-Value for Sample B",
+    method: "Part 2 · P-Value Method",
+    sample: "B",
+    type: "number",
+    points: 1,
+    label: "Read the P-value from Z-Test. Round to four decimal places.",
+    answer: 0.1587,
+    tolerance: 0.000051,
+    hint: "On the Z-Test results screen, read the number beside p =. You can also check using normalcdf(-9999,-1,0,1)."
+  },
+  {
+    title: "Make the P-Value Decision",
+    method: "Part 2 · P-Value Method",
+    sample: "B",
+    type: "choice",
+    points: 1,
+    options: [
+      "Reject H₀ because P ≤ α",
+      "Do Not Reject H₀ because P > α",
+      "Reject H₀ because P > α",
+      "Do Not Reject H₀ because P ≤ α"
+    ],
+    answer: 1,
+    hint: "Compare P = 0.1587 with α = 0.05. Remember: P ≤ α means Reject H₀; P > α means Do Not Reject H₀."
+  },
+  {
+    title: "State the Conclusion for Sample B",
+    method: "Part 2 · P-Value Method",
+    sample: "B",
+    type: "choice",
+    points: 1,
+    options: [
+      "There is enough evidence to support the claim that the population mean charging time is less than 6 hours.",
+      "There is not enough evidence to support the claim that the population mean charging time is less than 6 hours.",
+      "There is enough evidence to support the claim that the population mean charging time is greater than 6 hours.",
+      "The sample proves that the population mean charging time equals exactly 6 hours."
+    ],
+    answer: 1,
+    hint: "When you Do Not Reject H₀, use the textbook conclusion wording: There is not enough evidence to support the claim. This does not prove that H₀ is true."
+  }
 ];
-let current=0,attempt=1,answers=Array(5).fill(null),best=null;
-const $=id=>document.getElementById(id);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function render(){const q=questions[current];$('assignment').classList.remove('hidden');$('result').classList.add('hidden');$('stepLabel').textContent=`Attempt ${attempt} of 2 · Step ${current+1} of ${questions.length}`;$('progress').innerHTML=questions.map((_,i)=>`<div class="step ${i<=current?'active':''}"></div>`).join('');$('question').textContent=q.title;$('hintText').textContent=q.hint;$('error').textContent='';document.querySelector('.hint').open=false;
-if(q.type==='choice'){$('response').innerHTML=`<div class="options" role="radiogroup" aria-label="${esc(q.title)}">${q.options.map((o,i)=>`<label class="option"><input type="radio" name="answer" value="${i}" ${answers[current]===i?'checked':''}><span>${esc(o)}</span></label>`).join('')}</div>`;document.querySelectorAll('input[name=answer]').forEach(el=>el.addEventListener('change',e=>answers[current]=Number(e.target.value)))}else{$('response').innerHTML=`<label for="numeric">${esc(q.label)}</label><p><input id="numeric" class="number" inputmode="decimal" type="text" autocomplete="off" placeholder="Enter your answer" value="${answers[current]===null?'':esc(answers[current])}"></p>`;$('numeric').addEventListener('input',e=>answers[current]=e.target.value)}$('back').disabled=current===0;$('next').textContent=current===4?'Complete activity ✓':'Continue →';}
-function finish(){const name=$('studentName').value.trim().replace(/\s+/g,' ');if(name.split(' ').length<2){$('error').textContent='Enter your first and last name above before submitting.';$('studentName').focus();return;}const earned=questions.reduce((sum,q,i)=>{let ok=q.type==='choice'?answers[i]===q.answer:Math.abs(Number(answers[i])-q.answer)<=q.tolerance;return sum+(ok?2:0)},0);best=Math.max(best??0,earned);$('assignment').classList.add('hidden');$('result').classList.remove('hidden');$('result').innerHTML=`<div class="results"><div class="tag">MAT 152 · Section 9.2 · Electric Scooter Charging Times</div><div class="completion"><h2>✓ Assignment Completed</h2><p><strong>Student:</strong> ${esc(name)}</p><p><strong>Activity:</strong> Section 9.2 Interactive Hypothesis-Testing Assignment</p><p><strong>Completion:</strong> All five questions submitted · Attempt ${attempt} of 2</p><p><strong>Worksheet credit:</strong> 100% upon submission of this completion screenshot in Canvas</p></div><h3>Your practice score</h3><div class="score">${earned} / 10</div><p class="muted">${Math.round(earned/10*100)}% · ${earned/2} of 5 questions correct · Best score: ${best} / 10</p><p class="muted">Your practice score does not determine your worksheet grade.</p><p class="print-hide"><strong>Next:</strong> Take a screenshot showing your name and “Assignment Completed,” then upload it to the Section 9.2 worksheet submission in Canvas.</p><p class="print-hide"><button class="secondary" id="printResult" type="button">Print or save completion as PDF</button></p>${attempt===1?'<p class="print-hide"><button id="retry" type="button">Optional: Try a second attempt →</button></p>':'<p class="muted">Both practice attempts completed.</p>'}<p class="small muted">This webpage does not send results to Canvas. Your instructor awards worksheet credit after receiving your completion screenshot.</p></div>`;$('printResult').addEventListener('click',()=>window.print());if(attempt===1)$('retry').addEventListener('click',()=>{attempt=2;current=0;answers=Array(5).fill(null);render()});}
-$('next').addEventListener('click',()=>{if(answers[current]===null||String(answers[current]).trim()===''){$('error').textContent='Choose or enter an answer before continuing.';return}if(questions[current].type==='number'&&!Number.isFinite(Number(answers[current]))){$('error').textContent='Enter a valid number.';return}if(current<4){current++;render()}else finish()});$('back').addEventListener('click',()=>{if(current>0){current--;render()}});render();
+
+let current = 0;
+let attempt = 1;
+let answers = Array(questions.length).fill(null);
+let best = null;
+
+const $ = id => document.getElementById(id);
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;"
+}[c]));
+
+function render() {
+  const q = questions[current];
+  const sample = samples[q.sample];
+
+  $("assignment").classList.remove("hidden");
+  $("result").classList.add("hidden");
+
+  $("stepLabel").textContent =
+    `Attempt ${attempt} of 2 · Question ${current + 1} of ${questions.length}`;
+
+  $("methodLabel").textContent = q.method;
+
+  $("scenario").innerHTML = `
+    <strong>${sample.name}:</strong>
+    A random sample of <strong>${sample.size} scooters</strong>
+    has a mean charging time of <strong>${sample.mean} hours</strong>.
+    The population standard deviation is <strong>${sample.sigma} hours</strong>.
+    Test the researcher's claim that μ &lt; 6 using
+    <strong>α = ${sample.alpha}</strong>.
+  `;
+
+  $("progress").innerHTML = questions.map((_, i) =>
+    `<div class="step ${i <= current ? "active" : ""}"></div>`
+  ).join("");
+
+  $("question").textContent = q.title;
+  $("hintText").textContent = q.hint;
+  $("error").textContent = "";
+  document.querySelector(".hint").open = false;
+
+  if (q.type === "choice") {
+    $("response").innerHTML =
+      `<div class="options" role="radiogroup" aria-label="${esc(q.title)}">` +
+      q.options.map((option, i) =>
+        `<label class="option">
+          <input type="radio" name="answer" value="${i}"
+            ${answers[current] === i ? "checked" : ""}>
+          <span>${esc(option)}</span>
+        </label>`
+      ).join("") +
+      `</div>`;
+
+    document.querySelectorAll('input[name="answer"]').forEach(el =>
+      el.addEventListener("change", e => {
+        answers[current] = Number(e.target.value);
+      })
+    );
+  } else {
+    $("response").innerHTML =
+      `<label for="numeric">${esc(q.label)}</label>
+       <p>
+         <input id="numeric" class="number" inputmode="decimal"
+           type="text" autocomplete="off"
+           placeholder="Enter your answer"
+           value="${answers[current] === null ? "" : esc(answers[current])}">
+       </p>`;
+
+    $("numeric").addEventListener("input", e => {
+      answers[current] = e.target.value;
+    });
+  }
+
+  $("back").disabled = current === 0;
+
+  $("next").textContent =
+    current === questions.length - 1
+      ? "Complete Activity ✓"
+      : "Continue →";
+}
+
+function finish() {
+  const name = $("studentName").value.trim().replace(/\s+/g, " ");
+
+  if (name.split(" ").length < 2) {
+    $("error").textContent =
+      "Enter your first and last name above before submitting.";
+    $("studentName").focus();
+    return;
+  }
+
+  let earned = 0;
+  let correct = 0;
+
+  questions.forEach((q, i) => {
+    const ok = q.type === "choice"
+      ? answers[i] === q.answer
+      : Math.abs(Number(answers[i]) - q.answer) <= q.tolerance;
+
+    if (ok) {
+      earned += q.points;
+      correct++;
+    }
+  });
+
+  best = Math.max(best === null ? 0 : best, earned);
+
+  $("assignment").classList.add("hidden");
+  $("result").classList.remove("hidden");
+
+  $("result").innerHTML = `
+    <div class="results">
+      <div class="tag">
+        MAT 152 · Section 9.2 · Electric Scooter Charging Times
+      </div>
+
+      <div class="completion">
+        <h2>✓ Assignment Completed</h2>
+        <p><strong>Student:</strong> ${esc(name)}</p>
+        <p><strong>Activity:</strong>
+          Section 9.2 Interactive Hypothesis-Testing Assignment</p>
+        <p><strong>Methods completed:</strong>
+          Critical-Value Method and P-Value Method</p>
+        <p><strong>Completion:</strong>
+          All ten questions submitted · Attempt ${attempt} of 2</p>
+        <p><strong>Worksheet credit:</strong>
+          100% upon submission of this completion screenshot in Canvas</p>
+      </div>
+
+      <h3>Your Practice Score</h3>
+      <div class="score">${earned} / 10</div>
+      <p class="muted">
+        ${Math.round(earned / 10 * 100)}% ·
+        ${correct} of ${questions.length} questions correct ·
+        Best score: ${best} / 10
+      </p>
+
+      <p class="muted">
+        Your practice score does not determine your worksheet grade.
+      </p>
+
+      <p class="print-hide">
+        <strong>Next:</strong> Take a screenshot showing your name
+        and “Assignment Completed,” then upload it to the
+        Section 9.2 worksheet submission in Canvas.
+      </p>
+
+      <p class="print-hide">
+        <button class="secondary" id="printResult" type="button">
+          Print or Save Completion as PDF
+        </button>
+      </p>
+
+      ${attempt === 1
+        ? `<p class="print-hide">
+             <button id="retry" type="button">
+               Optional: Try a Second Attempt →
+             </button>
+           </p>`
+        : `<p class="muted">Both practice attempts completed.</p>`}
+
+      <p class="small muted">
+        This webpage does not send results to Canvas.
+        Your instructor awards worksheet credit after receiving
+        your completion screenshot.
+      </p>
+    </div>`;
+
+  $("printResult").addEventListener("click", () => window.print());
+
+  if (attempt === 1) {
+    $("retry").addEventListener("click", () => {
+      attempt = 2;
+      current = 0;
+      answers = Array(questions.length).fill(null);
+      render();
+    });
+  }
+}
+
+$("next").addEventListener("click", () => {
+  const value = answers[current];
+
+  if (value === null || String(value).trim() === "") {
+    $("error").textContent =
+      "Choose or enter an answer before continuing.";
+    return;
+  }
+
+  if (
+    questions[current].type === "number" &&
+    !Number.isFinite(Number(value))
+  ) {
+    $("error").textContent = "Enter a valid number.";
+    return;
+  }
+
+  if (current < questions.length - 1) {
+    current++;
+    render();
+  } else {
+    finish();
+  }
+});
+
+$("back").addEventListener("click", () => {
+  if (current > 0) {
+    current--;
+    render();
+  }
+});
+
+render();
 })();
-</script></body></html>
+</script>
+</body>
+</html>
