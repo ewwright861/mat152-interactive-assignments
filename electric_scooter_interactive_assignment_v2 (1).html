@@ -13,11 +13,7 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
-.shell {
-  max-width: 900px;
-  margin: auto;
-  padding: 22px 16px 65px;
-}
+.shell { max-width: 900px; margin: auto; padding: 22px 16px 65px; }
 .hero {
   background: #0b3d66;
   color: white;
@@ -32,7 +28,7 @@ body { margin: 0; }
   color: #c8e6ff;
 }
 .hero h1 {
-  font-size: clamp(1.65rem, 4vw, 2.4rem);
+  font-size: clamp(1.65rem,4vw,2.4rem);
   margin: 8px 0;
 }
 .hero p { line-height: 1.6; margin-bottom: 0; }
@@ -45,7 +41,7 @@ body { margin: 0; }
 .panel:last-child { border-radius: 0 0 18px 18px; }
 .facts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 10px;
   margin: 18px 0;
 }
@@ -88,11 +84,7 @@ body { margin: 0; }
   border-radius: 9px;
   font-size: 1rem;
 }
-.stepbar {
-  display: flex;
-  gap: 6px;
-  margin: 20px 0;
-}
+.stepbar { display: flex; gap: 6px; margin: 20px 0; }
 .step {
   flex: 1;
   height: 8px;
@@ -100,11 +92,7 @@ body { margin: 0; }
   background: #dbe6ef;
 }
 .step.active { background: #0b709c; }
-.tag {
-  font-weight: 750;
-  color: #0b3d66;
-  font-size: .9rem;
-}
+.tag { font-weight: 750; color: #0b3d66; font-size: .9rem; }
 .question {
   font-size: 1.28rem;
   font-weight: 750;
@@ -184,14 +172,8 @@ button {
   background: #0b3d66;
   color: white;
 }
-button.secondary {
-  background: white;
-  color: #0b3d66;
-}
-button:disabled {
-  opacity: .4;
-  cursor: not-allowed;
-}
+button.secondary { background: white; color: #0b3d66; }
+button:disabled { opacity: .4; cursor: not-allowed; }
 button:focus-visible,
 input:focus-visible,
 summary:focus-visible {
@@ -216,10 +198,7 @@ summary:focus-visible {
   color: #0b3d66;
   margin: 8px 0;
 }
-.muted {
-  color: #50687b;
-  line-height: 1.6;
-}
+.muted { color: #50687b; line-height: 1.6; }
 .completion {
   border: 2px solid #2e7d32;
   background: #f7fbf8;
@@ -229,24 +208,18 @@ summary:focus-visible {
 }
 .completion h2 { color: #285c3d; }
 .hidden { display: none !important; }
-
 @media print {
   body { background: white; }
   .hero, .panel:first-of-type,
-  #assignment, .print-hide {
-    display: none !important;
-  }
+  #assignment, .print-hide { display: none !important; }
   .shell { padding: 0; }
   .panel { border: 0; padding: 0; }
-  .results {
-    border: 2px solid #333;
-    background: white;
-  }
+  .results { border: 2px solid #333; background: white; }
 }
-@media (max-width: 620px) {
+@media(max-width:620px) {
   .hero { padding: 24px 20px; }
   .panel { padding: 20px; }
-  .facts { grid-template-columns: repeat(2, 1fr); }
+  .facts { grid-template-columns: repeat(2,1fr); }
   .option { padding: 13px; }
   .actions button { flex: 1; }
 }
@@ -256,14 +229,10 @@ summary:focus-visible {
 <main class="shell">
 
 <header class="hero">
-  <div class="eyebrow">
-    MAT 152 · Section 9.2 · Guided Learning
-  </div>
+  <div class="eyebrow">MAT 152 · Section 9.2 · Guided Learning</div>
   <h1>Electric Scooter Charging Times</h1>
-  <p>
-    Interactive Hypothesis-Testing Assignment<br>
-    Critical-Value Method &amp; P-Value Method
-  </p>
+  <p>Interactive Hypothesis-Testing Assignment<br>
+  Critical-Value Method &amp; P-Value Method</p>
 </header>
 
 <section class="panel">
@@ -272,8 +241,8 @@ summary:focus-visible {
   <p>
     A company claims that its electric scooters have an
     average charging time of <strong>6 hours</strong>.
-    Two researchers investigate the company's claim
-    using different random samples.
+    Two researchers investigate the company's claim using
+    <strong>different random samples</strong>.
   </p>
 
   <p>
@@ -284,9 +253,9 @@ summary:focus-visible {
   </p>
 
   <p>
-    Both investigations use a significance level of
-    <strong>0.05</strong> and a known population standard
-    deviation of <strong>1.6 hours</strong>.
+    Each researcher has a different belief about the population
+    mean charging time. Read each sample's description carefully
+    before selecting your hypotheses.
   </p>
 
   <div class="facts">
@@ -339,7 +308,7 @@ summary:focus-visible {
       in Canvas, regardless of your practice score.
     </p>
 
-    <p style="margin-bottom:0">
+    <p>
       <strong>Completion:</strong> Take a screenshot of the
       final screen showing your first and last name and
       the words "Assignment Completed."
@@ -371,10 +340,8 @@ summary:focus-visible {
     <div class="tag" id="stepLabel"></div>
     <div class="stepbar" id="progress"
       aria-label="Assignment progress"></div>
-
     <div class="method" id="methodLabel"></div>
     <div class="scenario" id="scenario"></div>
-
     <h2 class="question" id="question"></h2>
     <div id="response"></div>
 
@@ -389,16 +356,11 @@ summary:focus-visible {
     <div class="actions">
       <button class="secondary" id="back"
         type="button">← Back</button>
-      <button id="next" type="button">
-        Continue →
-      </button>
+      <button id="next" type="button">Continue →</button>
     </div>
   </div>
-
-  <div id="result" class="hidden"
-    aria-live="polite"></div>
+  <div id="result" class="hidden" aria-live="polite"></div>
 </section>
-
 </main>
 
 <script>
@@ -449,7 +411,7 @@ const questions = [
     label: "Use invNorm to find the critical z-value. Round to three decimal places.",
     answer: -1.645,
     tolerance: 0.00051,
-    hint: "Determine the tail from the alternative hypothesis. Use invNorm(area to the left,0,1)."
+    hint: "Determine the test direction from the alternative hypothesis. Use invNorm(area to the left,0,1)."
   },
   {
     title: "Find the Test Statistic",
@@ -473,7 +435,7 @@ const questions = [
       "Do Not Reject H₀"
     ],
     answer: 0,
-    hint: "Compare the test statistic with the critical value. Decide whether the test statistic falls in the rejection region."
+    hint: "Compare your test statistic with your critical value. Decide whether the test statistic falls in the rejection region."
   },
   {
     title: "State the Conclusion for Sample A",
@@ -503,7 +465,7 @@ const questions = [
       "H₀: μ = 5.8; H₁: μ ≠ 5.8"
     ],
     answer: 2,
-    hint: "Think about whether the researcher is interested in values below 6, above 6, or either direction."
+    hint: "Think about whether the researcher's belief concerns charging times below 6 hours, above 6 hours, or either direction."
   },
   {
     title: "Find the Test Statistic for Sample B",
@@ -525,7 +487,7 @@ const questions = [
     label: "Read the P-value from Z-Test. Round to four decimal places.",
     answer: 0.3173,
     tolerance: 0.000051,
-    hint: "Read the P-value directly from the Z-Test results screen. Check that your alternative hypothesis matches the researcher's belief."
+    hint: "Read the P-value directly from the Z-Test results screen. Check that the alternative you selected matches the researcher's belief."
   },
   {
     title: "Make the P-Value Decision",
@@ -540,7 +502,7 @@ const questions = [
       "Do Not Reject H₀ because P ≤ α"
     ],
     answer: 1,
-    hint: "Compare your P-value with α = 0.05. Use the decision rules from your Section 9.2 lesson."
+    hint: "Compare your calculated P-value with α = 0.05. Apply the decision rule from your Section 9.2 lesson."
   },
   {
     title: "State the Conclusion for Sample B",
@@ -555,7 +517,7 @@ const questions = [
       "The sample proves that the population mean charging time equals exactly 6 hours."
     ],
     answer: 1,
-    hint: "Use your P-value decision to choose the conclusion about the researcher's claim. Not rejecting H₀ does not prove that the null hypothesis is true."
+    hint: "Use your P-value decision to choose the appropriate conclusion about the researcher's claim. Not rejecting H₀ does not prove the null hypothesis is true."
   }
 ];
 
