@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Section 9.3 | Campus Food Spending Investigation</title>
+<style>
+:root{--navy:#142b48;--teal:#087f83;--pale:#eaf7f5;--gold:#f5b94b;--ink:#233348;--muted:#5d6d7d;--line:#d9e4ed}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--ink);font:18px/1.55 system-ui,Segoe UI,Arial,sans-serif}
+header{background:linear-gradient(125deg,#122d4d,#087f83);color:white;padding:36px max(20px,calc((100vw - 1050px)/2))}
+header h1{font-size:clamp(29px,4vw,45px);line-height:1.13;margin:8px 0}header p{max-width:750px;margin:10px 0}
+main{max-width:1050px;margin:auto;padding:24px 18px 70px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:25px;margin:20px 0;box-shadow:0 4px 18px #1534500b}
+h2{font-size:25px;color:var(--navy);margin:0 0 12px}h3{font-size:20px;margin:12px 0}
+.kicker{letter-spacing:.12em;text-transform:uppercase;font-size:13px;font-weight:800;color:var(--teal)}.data{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stat{background:var(--pale);border-radius:12px;padding:13px}.stat small{display:block;color:#395c66;font-size:14px}.stat strong{font-size:24px;color:#153d50}
+button{font:inherit;border:0;border-radius:10px;padding:11px 17px;cursor:pointer;background:var(--teal);color:white;font-weight:700}button:hover{filter:brightness(.92)}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+button.secondary{background:#e6eef5;color:#183b56}button:disabled{opacity:.5;cursor:not-allowed}
+input[type=text],input[type=number],select{font:inherit;border:2px solid #b5cbd6;border-radius:9px;padding:10px;width:100%;max-width:540px;background:white;color:var(--ink)}
+label{display:block;margin:9px 0}.choice{padding:11px;border:1px solid var(--line);border-radius:10px;display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.choice input{margin-top:8px;accent-color:var(--teal)}.choice:has(input:checked){background:var(--pale);border-color:var(--teal)}
+.q{border-top:1px solid var(--line);padding:21px 0}.q:first-of-type{border-top:0}.q p{margin:8px 0}
+.feedback{border-left:5px solid var(--teal);background:var(--pale);padding:12px;margin:12px 0;border-radius:5px}.feedback.try{border-color:#e0a33c;background:#fff7e7}
+.hint{background:#f5f0ff;padding:12px;border-radius:9px;margin-top:12px}.hidden{display:none!important}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.pill{display:inline-block;border-radius:99px;padding:4px 12px;background:#dceef1;color:#124a5b;font-weight:700;font-size:14px}
+.note{color:var(--muted);font-size:16px}.steps{padding-left:23px}.steps li{margin:6px 0}
+.progress{height:13px;background:#e1ebef;border-radius:30px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--teal);transition:width .3s}
+svg{width:100%;height:auto;max-height:280px}.curve-wrap{background:#f7fbff;border-radius:14px;padding:14px}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:20px}
+@media(max-width:600px){.data{grid-template-columns:repeat(2,1fr)}.card{padding:18px}body{font-size:17px}}
+@media print{header{background:white;color:black}button,.toolbar,.hint{display:none!important}.card{box-shadow:none}}
+</style></head>
+<body><header><div class="kicker" style="color:#a5eeea">MAT 152 • Section 9.3</div><h1>Campus Food Spending Investigation</h1><p>Are college students really spending more than $60 a week on coffee, snacks, and takeout? You're the statistician. Use a TI-83/TI-84 to investigate.</p></header>
+<main>
+<section class="card"><h2>Your assignment</h2><p>Work through 10 questions to decide which statistical procedure fits the situation and explain your conclusion. You get up to two checks per question, with feedback and a hint after an incorrect first try. Your score is for practice: completing the activity earns full worksheet credit when you submit the completion screenshot in Canvas.</p>
+<label for="student">Your first and last name</label><input id="student" type="text" autocomplete="name" placeholder="Enter your name">
+<p class="note">Enter your name before starting. Nothing is sent to a server; your work stays in this browser tab.</p>
+<button id="start">Start investigation →</button></section>
+<section class="card" id="scenario"><div class="kicker">The situation</div><h2>What does a typical student spend?</h2><p>A campus survey claims that college students spend an average of <strong>$60 per week</strong> on coffee, snacks, and takeout. You suspect the actual mean is <strong>higher</strong>. A random sample of 36 students reports the following:</p>
+<div class="data"><div class="stat"><small>Claimed mean, μ₀</small><strong>$60</strong></div><div class="stat"><small>Sample size, n</small><strong>36</strong></div><div class="stat"><small>Sample mean, x̄</small><strong>$67</strong></div><div class="stat"><small>Sample SD, s</small><strong>$18</strong></div><div class="stat"><small>Significance, α</small><strong>0.05</strong></div><div class="stat"><small>Population σ</small><strong>Unknown</strong></div></div>
+<p class="note">Assume the sample was randomly selected and the distribution has no severe skew or extreme outliers. Think about these conditions as you decide which test to use.</p></section>
+<section class="card hidden" id="work"><div class="kicker">Interactive practice</div><h2>Make your case</h2><div class="progress" aria-label="Question progress"><div id="bar"></div></div><p id="progressText" class="note" aria-live="polite"></p><div id="questions"></div><button id="finish" class="hidden">Finish and show completion</button></section>
+<section class="card hidden" id="visualization" aria-label="Interpret the graph">
+<div class="kicker">See what your result means</div>
+<h2>Where does your test statistic fall?</h2>
+<p>This picture shows a right-tailed test. The dashed line marks the critical value (about 1.690). The solid line marks the test statistic your calculator found (about 2.333).</p>
+<div class="curve-wrap">
+<svg viewBox="0 0 760 300" role="img" aria-label="Bell-shaped t distribution centered at zero. The right rejection tail beyond 1.690 is shaded, and the test statistic 2.333 falls in that shaded region.">
+<defs><linearGradient id="tailshade" x1="0" x2="1"><stop stop-color="#f5b94b" stop-opacity=".55"/><stop offset="1" stop-color="#e78b37" stop-opacity=".8"/></linearGradient></defs>
+<path d="M 45 238 H 720" fill="none" stroke="#73899d" stroke-width="2"/>
+<path id="tailFill" fill="url(#tailshade)"/>
+<path id="tCurve" fill="none" stroke="#087f83" stroke-width="4" stroke-linecap="round"/>
+<line id="critLine" y1="238" y2="100" stroke="#a96b19" stroke-width="2.5" stroke-dasharray="7 5"/>
+<line id="testLine" y1="238" y2="140" stroke="#173b68" stroke-width="3"/>
+<text id="critText" y="85" font-size="17" text-anchor="middle" fill="#8a570d">Critical value 1.690</text>
+<text id="testText" y="132" font-size="17" text-anchor="start" fill="#173b68">t = 2.333</text>
+<text x="380" y="270" font-size="16" text-anchor="middle" fill="#435569">t values</text>
+<text x="380" y="231" font-size="15" text-anchor="middle" fill="#435569">0</text>
+</svg></div>
+<div class="q" id="graphQuestion"><h3>What does the graph tell you?</h3><p>Look at the dashed critical-value line and the solid test-statistic line. What does their position tell you?</p>
+<label class="choice"><input type="radio" name="graphAnswer" value="0"> The test statistic is in the rejection region, so reject H₀.</label>
+<label class="choice"><input type="radio" name="graphAnswer" value="1"> The test statistic is outside the rejection region, so do not reject H₀.</label>
+<label class="choice"><input type="radio" name="graphAnswer" value="2"> The graph shows that every student spends more than $60.</label>
+<div class="toolbar"><button id="graphCheck" type="button">Check my interpretation</button></div><div id="graphFeedback" aria-live="polite"></div></div>
+</section>
+<section class="card hidden" id="complete" aria-live="polite"><div class="kicker">Assignment completed</div><h2>Nice work, <span id="studentName"></span>!</h2><p>You've finished the Section 9.3 Campus Food Spending Investigation.</p><p><span class="pill" id="score"></span> <span class="pill">Completion credit: 100%</span></p><p><strong>To submit:</strong> Take a screenshot of this completion screen showing your name, the assignment title, and “Assignment Completed.” Upload it to the Canvas assignment.</p><button onclick="window.print()">Print or save completion screen</button><p class="note">Practice score reflects correct first or second checks; your worksheet completion credit does not depend on the practice score.</p></section>
+</main><footer>MAT 152 • Section 9.3 • Campus Food Spending Investigation</footer>
+<script>
+const questions=[
+{title:"1. What are we trying to find out?",prompt:"Which alternative hypothesis matches the suspicion that students spend more than $60 a week?",options:["H₁: μ < 60","H₁: μ > 60","H₁: μ ≠ 60"],answer:1,why:"The word 'more' tells us the alternative is μ > 60, so this is a right-tailed test.",hint:"Look for the symbol that means greater than."},
+{title:"2. Set up the null hypothesis",prompt:"Which null hypothesis should you use?",options:["H₀: μ = 60","H₀: x̄ = 67","H₀: μ > 60"],answer:0,why:"The null uses the claimed population mean: H₀: μ = 60. The sample mean of 67 is evidence, not the null claim.",hint:"The null statement uses the population mean and an equals sign."},
+{title:"3. Choose the calculator procedure",prompt:"Which TI-84 test is appropriate here?",options:["Z-Test, because n = 36","T-Test, because population σ is unknown","1-PropZTest, because 36 students responded"],answer:1,why:"We are testing a population mean, and the population standard deviation σ is unknown. Use T-Test with the sample standard deviation s.",hint:"Ask yourself: do we know the population standard deviation?"},
+{title:"4. Set up the TI-84",prompt:"Go to STAT → TESTS → T-Test → Stats. Which entries are correct?",options:["μ₀=60, x̄=67, Sx=18, n=36, μ>μ₀","μ₀=67, x̄=60, Sx=18, n=36, μ>μ₀","μ₀=60, x̄=67, Sx=18, n=36, μ<μ₀"],answer:0,why:"The claimed mean is 60; the sample mean is 67; Sx is 18; n is 36. Select μ > μ₀.",hint:"μ₀ is the claim. x̄ and Sx come from the sample."},
+{title:"5. Read the test statistic",prompt:"Run T-Test on your calculator. What t statistic do you get? (Round to 3 decimals.)",type:"number",answer:2.333,tolerance:.002,why:"Your TI-83/TI-84 should display t ≈ 2.333. The positive t-value tells us the sample mean is above the claimed population mean. You do not need to calculate this by hand.",hint:"Use STAT → TESTS → T-Test → Stats, enter the sample information, and select Calculate. Read the t value from the calculator screen."},
+{title:"6. Interpret the P-value",prompt:"Your TI-84 should give a right-tailed P-value of about 0.0128. What does that mean?",options:["There is a 1.28% chance that the null hypothesis is true.","If the true mean were $60, getting a sample result at least this high would be unusual.","About 1.28% of students spend more than $60."],answer:1,why:"A P-value is about how surprising the sample result would be if H₀ were true. It is not the probability that H₀ is true.",hint:"A P-value starts by assuming the null hypothesis is true."},
+{title:"7. Make the P-value decision",prompt:"Compare P ≈ 0.0128 with α = 0.05. What is the correct decision?",options:["Reject H₀ because P ≤ α","Do not reject H₀ because P ≤ α","Reject H₀ because P > α"],answer:0,why:"0.0128 is less than 0.05, so reject H₀. Remember: P ≤ α → Reject H₀; P > α → Do not reject H₀.",hint:"Is 0.0128 smaller or larger than 0.05?"},
+{title:"8. Try the critical-value method",prompt:"For a right-tailed t-test with df = 35 and α = 0.05, the critical value is about 1.690. Compare it with t = 2.333.",options:["Reject H₀ because 2.333 > 1.690","Do not reject H₀ because 2.333 > 1.690","Reject H₀ because 2.333 < 1.690"],answer:0,why:"Our test statistic falls to the right of the critical cutoff, in the rejection region. Both methods agree.",hint:"On a right-tailed test, values farther right than the critical cutoff lead to rejection."},
+{title:"9. Write a real-world conclusion",prompt:"Which statement best explains the result?",options:["We proved every student spends more than $60 each week.","There is enough evidence to support the claim that the population mean weekly spending exceeds $60.","There is not enough evidence to support the claim that the mean exceeds $60."],answer:1,why:"We have enough evidence to support the claim about the population mean. A hypothesis test does not prove something about every individual student.",hint:"We rejected H₀. Use 'There is enough evidence' and talk about the population mean."},
+{title:"10. Go beyond the calculation",prompt:"A 90% confidence interval is approximately ($61.93, $72.07). Which interpretation is best?",options:["Because $60 is outside this interval, it supports our right-tailed test result at α = 0.05.","Because $60 is outside the interval, every student spends at least $61.93.","The result proves a $7 difference is important to every student."],answer:0,why:"A 90% two-sided confidence interval corresponds to a 5% one-sided test in this setting. It excludes $60, consistent with rejecting H₀. Statistical significance does not automatically mean a $7 difference is practically important.",hint:"Does the interval include the claimed mean of $60? Also consider whether statistical significance is the same as practical importance."}
+];
+let results=Array(questions.length).fill(null),attempts=Array(questions.length).fill(0),name="",graphDone=false,graphAttempts=0;
+const $=id=>document.getElementById(id);
+function render(){const wrap=$("questions");wrap.innerHTML="";
+questions.forEach((q,i)=>{if(results.some(x=>x===null) && i>results.findIndex(x=>x===null))return;if(i>7&&!graphDone)return;let d=document.createElement("article");d.className="q";d.id="q"+i;
+const done=results[i]!==null;d.innerHTML=`<h3>${q.title}</h3><p>${q.prompt}</p>`;
+if(q.type==="number"){let label=document.createElement("label");label.textContent="Your answer: ";let inp=document.createElement("input");inp.type="number";inp.step="any";inp.id="a"+i;inp.disabled=done;label.appendChild(inp);d.appendChild(label)}
+else{q.options.forEach((o,j)=>{let label=document.createElement("label");label.className="choice";let inp=document.createElement("input");inp.type="radio";inp.name="a"+i;inp.value=j;inp.disabled=done;label.appendChild(inp);label.appendChild(document.createTextNode(o));d.appendChild(label)})}
+let controls=document.createElement("div");controls.className="toolbar";let b=document.createElement("button");b.textContent=done?"Answered ✓":"Check answer";b.disabled=done;b.addEventListener("click",()=>check(i));controls.appendChild(b);d.appendChild(controls);
+let fb=document.createElement("div");fb.id="f"+i;fb.setAttribute("aria-live","polite");if(done){fb.className="feedback";fb.textContent=(results[i]?"Correct! ":"Practice answer revealed. ")+q.why}else if(attempts[i]){fb.className="feedback try";fb.textContent="Not quite. Try one more time. "+q.hint}else{fb.className="hidden"}d.appendChild(fb);wrap.appendChild(d);if(i===7 && results[7]!==null){wrap.appendChild($("visualization"));$("visualization").classList.remove("hidden")}});
+let n=results.filter(x=>x!==null).length;$("bar").style.width=(n/10*100)+"%";$("progressText").textContent=n+" of 10 questions completed";$("finish").classList.toggle("hidden",n!==10||!graphDone)}
+function drawCurve(){
+const X=t=>380+t*83, Y=t=>238-174*Math.pow(1+t*t/35,-18);
+let line=[],fill=[];
+for(let t=-4;t<=4.001;t+=.04)line.push((line.length?"L":"M")+X(t).toFixed(1)+" "+Y(t).toFixed(1));
+for(let t=1.69;t<=4.001;t+=.03)fill.push("L"+X(t).toFixed(1)+" "+Y(t).toFixed(1));
+document.getElementById("tCurve").setAttribute("d",line.join(" "));
+document.getElementById("tailFill").setAttribute("d","M"+X(1.69)+" 238 "+fill.join(" ")+" L"+X(4)+" 238 Z");
+document.getElementById("critLine").setAttribute("x1",X(1.69));document.getElementById("critLine").setAttribute("x2",X(1.69));
+document.getElementById("testLine").setAttribute("x1",X(2.333));document.getElementById("testLine").setAttribute("x2",X(2.333));
+document.getElementById("critText").setAttribute("x",X(1.69)-24);
+document.getElementById("testText").setAttribute("x",X(2.333)+8);
+}
+drawCurve();
+$("graphCheck").addEventListener("click",()=>{const selected=document.querySelector('input[name="graphAnswer"]:checked');if(!selected){alert("Choose an answer first.");return}graphAttempts++;const correct=selected.value==="0";const f=$("graphFeedback");if(correct||graphAttempts>=2){graphDone=true;f.className="feedback";f.textContent=(correct?"Correct! ":"The correct interpretation is: ")+"The test statistic is to the right of the critical value, inside the rejection region. This supports rejecting H₀.";$("graphCheck").disabled=true;document.querySelectorAll('input[name="graphAnswer"]').forEach(e=>e.disabled=true);render();$("graphQuestion").scrollIntoView({block:"center",behavior:"smooth"})}else{f.className="feedback try";f.textContent="Not quite. Compare the solid line with the dashed line. Which side is shaded? Try once more.";$("graphCheck").textContent="Check second try"}});
+function check(i){const q=questions[i];let val;if(q.type==="number"){let el=$("a"+i);if(el.value.trim()===""){alert("Please enter an answer first.");return}val=Number(el.value)}else{let sel=document.querySelector('input[name="a'+i+'"]:checked');if(!sel){alert("Choose an answer first.");return}val=Number(sel.value)}
+let correct=q.type==="number"?Math.abs(val-q.answer)<=q.tolerance:val===q.answer;attempts[i]++;if(correct||attempts[i]>=2){results[i]=correct;render();$("q"+i).scrollIntoView({block:"center",behavior:"smooth"})}else{let f=$("f"+i);f.className="feedback try";f.textContent="Not quite. Try one more time. "+q.hint;let btn=$("q"+i+" button");btn.textContent="Check second try"}}
+$("start").addEventListener("click",()=>{name=$("student").value.trim();if(name.length<3){alert("Please enter your first and last name.");$("student").focus();return}$("student").disabled=true;$("start").disabled=true;$("work").classList.remove("hidden");render();$("work").scrollIntoView({behavior:"smooth"})});
+$("finish").addEventListener("click",()=>{let score=results.filter(Boolean).length;$("studentName").textContent=name;$("score").textContent="Practice score: "+score+"/10";$("complete").classList.remove("hidden");$("complete").scrollIntoView({behavior:"smooth"})});
+</script></body></html>
